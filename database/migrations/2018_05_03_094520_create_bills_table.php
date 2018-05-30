@@ -17,12 +17,11 @@ class CreateBillsTable extends Migration
             $table->increments('id');
             $table->date('date_order');
             $table->float('total');
-            $table->string('payment');
-            $table->string('note');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->text('note');
             $table->integer('customer_id')->unsigned();
-            $table->foreign('customer_id')->references('id')->on('customers');            
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');          
             $table->timestamps();
         });
     }
